@@ -1,0 +1,12 @@
+apiVersion: v1 #Which version of the Kubernetes API you're using to create this object
+kind: Service #what kind of object you want to create
+metadata: #Data that helps uniquely identify the object, including a name string, UID, and optional namespace
+  name: nginx-service
+spec:
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080    
+ 

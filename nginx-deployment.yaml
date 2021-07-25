@@ -1,0 +1,21 @@
+apiVersion: apps/v1 #Which version of the Kubernetes API you're using to create this object
+kind: Deployment #what kind of object you want to create
+metadata: #Data that helps uniquely identify the object, including a name string, UID, and optional namespace
+  name: nginx-deployment
+  labels:
+    app: my-app
+spec:
+  selector:
+    matchLabels:
+      app: my-app
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 8080
